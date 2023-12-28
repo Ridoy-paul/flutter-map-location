@@ -10,8 +10,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 0;
-
   @override
   Widget build(BuildContext context) {
 
@@ -22,14 +20,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
         title: const Text("Google Map"),
       ),
-      body: SafeArea(
+      body:  SafeArea(
         child: GoogleMap(
           initialCameraPosition: CameraPosition(
-            zoom: 19,
+            zoom: 15,
               target: LatLng(23.808435717102608, 90.36957545350393),
-
+            bearing: 0,
+            tilt: 5,
           ),
-
+          onTap: (LatLng position) {
+            print(position);
+          },
+          myLocationEnabled: true,
         ),
       ),
     );
